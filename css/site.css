@@ -1,0 +1,28 @@
+body {
+    background: url(./../images/bg.png) center;
+    background-size:cover;
+}
+
+.reveal .slides img.logo {
+    background:none;
+    border:none;
+    width:200px;
+}
+
+.reveal .title {
+    color:greenyellow;
+}
+
+.reveal .list-items {
+    font-size:0.8em;
+    line-height:1.8em;
+}
+
+.reveal .list-sub-items {
+    font-size:0.6em;line-height:1.6em;
+}
+
+.reveal .terminologies ul.list-items > li > strong {
+    color:darkorange;
+}
+

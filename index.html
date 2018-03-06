@@ -1,0 +1,427 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="author" content="Hojjat K">
+
+        <title>GIT & Visual Studio Team Services</title>
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/black.css">
+        <link rel="stylesheet" href="css/site.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+    </head>
+
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <!--=============== Main Section =================-->
+                <section>
+                    <h1 class="title">GIT</h1>
+                    <h3 class="title"><small>Visual Studio Team Services</small></h3>
+                    <br/><br/>
+                    <img class="logo" src="./../images/vr-logo.png" />
+                    <br>
+                    <small>2018</small>
+                </section>
+
+                <!--=============== What is GIT Section =================-->
+                <section>
+                    <h2 class="title">What is Git?</h2>
+                    <hr>
+                    <blockquote class="title">
+                        <small><em>“Git is a Distributed Version Control System”</em></small> 
+                    </blockquote>
+                    <br>
+                    <ul class="list-items">
+                        <li>
+                            Ideas behind DVCS
+                            <ul class="list-sub-items">
+                                <li>Everybody has a complete version of repositories, hence everybody has a backup.</li>
+                                <li>You can work offline and later on can move changes to a remote repository.</li>
+                                <li>Performing actions other than pushing and pulling change-sets are extremely fast.</li>
+                            </ul>    
+                        </li>
+                        <li>
+                            Branching is Cheap
+                            <ul class="list-sub-items">
+                                <li>A branch in git is simply a lightweight movable pointer to one of commits.</li>
+                            </ul>
+                        </li>
+                        <li>
+                            Our reasons from changing from TFVC to GIT
+                            <ul class="list-sub-items">
+                                <li>Industry standard.</li>
+                                <li>Easier Branching model.</li>
+                                <li>More flexible in terms of code freeze and development workflow.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                <!--=============== How GIT Works Section =================-->
+                <section>
+                    <section>
+                        <h2 class="title">How GIT Works?</h2>
+                        <hr>
+                        <br><br>
+                        <ul class="list-items">
+                            <li>Create a git repository via command line.</li>
+                            <li>How to share your code to others?</li>
+                            <li>How to clone a repository?</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3 class="title"><small>Create a git repository in command line.</small></h3>
+                        <pre>
+                            <code class="console hljs" data-trim>                                
+                                $ mkdir myrepo
+                                $ cd myrepo
+                                $ git init
+                                $ git status
+                                >// Create a new file 
+                                $ git status 
+                                $ git add 
+                                $ git status 
+                                $ git commit -m "initial checkin" 
+                                $ git status
+                                $ git log
+                                >// Make changes to exiting file & and a new file 
+                                $ git status
+                                $ git add {new-file} 
+                                $ git status
+                                $ git commit -m "added new-file" 
+                                $ git log
+                            </code>
+                        </pre>                        
+                    </section>
+                    <section>
+                            <h3 class="title"><small>How to share your code to others?</small></h3>
+                            <pre>
+                                <code class="console hljs" data-trim>
+                                    > github: // Login 
+                                    > github: // Create a new repository 
+                                    $ git remote add origin https://github.com/repository/myrepo.git
+                                    $ git remote -v
+                                    $ git push -u origin master
+                                    > github: // Make changes on a file on server
+                                    $ git fetch origin master
+                                    $ git merge origin/master
+                                    >// You can do git pull master as well                                    
+                                </code>
+                            </pre>
+                        </section>
+                        <section>
+                            <h3 class="title"><small>How to clone a repository?</small></h3>
+                            <pre>
+                                <code class="console hljs" data-trim>
+                                    $ git clone https://github.com/repository/myrepo.git 
+                                    $ git add 
+                                    $ git commit 
+                                    $ git push origin master
+                                </code>
+                            </pre>
+                        </section>
+                </section>
+
+                <!--=============== Git Terminologies Section =================-->
+                <section class="terminologies">
+                    <h2 class="title">Git Terminologies</h2>
+                    <hr>
+                    <ul class="list-items" style="font-size:0.48em">
+                        <li><strong>Origin,Remote,Upstream</strong>: </li>
+                        <li><strong>Repository</strong>: A collection of commits, and branches and tags to identify commits.</li>
+                        <li><strong>Branch</strong>: A branch represents an independent line of development.</li>
+                        <li><strong>Checkout</strong>: Switch branches or restore working tree files.</li>
+                        <li><strong>Commit/Amend</strong>: Takes the staged snapshot and commits it to the project history.</li>
+                        <li><strong>Fetch</strong>: It downloads a branch from a remote repository.</li>
+                        <li><strong>Pull</strong>: It downloads a branch from a remote repository, then immediately merges it into the current branch.</li>
+                        <li><strong>Push</strong>: It lets you move a local branch to another repository, which serves as a convenient way to publish contributions.</li>
+                        <li><strong>Merge</strong>: Integrate changes from divergent branches.</li>
+                        <li><strong>Rebase</strong>: Rebasing lets you move branches around, which helps you avoid unnecessary merge commits. The resulting linear history is often much easier to understand and explore.</li>
+                        <li><strong>Tag</strong>: A reference typically used to mark a particular point in the commit chain.</li>
+                        <li><strong>Pull Request</strong>: Pull requests are a feature that makes it easier for developers to collaborate.</li>
+                        <li><strong>Stash</strong>: temporarily shelves (or stashes) changes you've made to your working copy.</li>
+                        <li><strong>Reset</strong>: Undoes changes to files in the working directory.</li>
+                        <li><strong>Revert</strong>: Undoes a committed snapshot.</li>
+                        <li><strong>Clean</strong>: Removes untracked files from the working directory.</li>
+                    </ul>
+                </section>
+
+                <!--=============== How Git works in Visual Studio Section =================-->
+                <section>
+                    <section>
+                        <h2 class="title">How Git works in Visual Studio?</h2>
+                        <hr>
+                        <br>
+                        <ul class="list-items">
+                            <li>Demo With GitHub</li>
+                            <li>
+                                Let's talk about branches
+                                <ul>
+                                    <li>master branch is the main branch by default.</li>
+                                    <li>The process of merging a feature branch to a main branch (master/dev) is called a “Pull Request”.</li>                                    
+                                </ul>
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3 class="title"><small>Demo With GitHub</small></h3>
+                        <pre>
+                            <code class="console hljs" data-trim>
+                                > // Launch Visual Studio
+                                > VS: Click create a repo under github
+                                > VS: Create a new solution/project
+                                > VS: Change some files and "Commit all"
+                                > VS: navigate to branches and "Push"
+                                > VS: view history 
+                                > GitHub: edit file directly in github
+                                > VS: "Fetch" master branch
+                                > VS: navigate to branched and "Pull"
+                                > VS: change files
+                                > VS: navigate branches and "Push"
+                            </code>
+                        </pre>
+                    </section>
+                </section>
+
+                <!--=============== How Git works in VSTS Section =================-->
+                <section>
+                    <section>
+                        <h2 class="title">How Git works in VSTS?</h2>
+                        <hr>
+                        <br>                        
+                        <ul class="list-items">
+                            <li>
+                                <div>
+                                    Setup git in VS to work with VSTS                             
+                                    <a href="https://vrdevhub.visualstudio.com">https://vrdevhub.visualstudio.com</a>                                   
+                                    <img style="float:right" src="./images/vrdevhub.png" height="250px">
+                                </div>
+                            </li>
+                            <li>Git workflow Demo</li>
+                            <li>
+                                Git branches Demo
+                                <ul class="list-sub-items">
+                                    <li>What is a "Pull Request"?</li>
+                                    <li>What happens if there is a conflict?</li>
+                                </ul>
+                            </li>
+                            <li>What are out main branches: dev, master</li>
+                            <li>What is a branch policy?</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3 class="title"><small>Git workflow Demo</small></h3>
+                        <pre>
+                            <code class="console hljs" data-trim>
+                                > VSTS: Login
+                                > VSTS: create a new project 
+                                > VS: navigate to Team Explorer 
+                                >     Manage Connections -> Connect to 
+                                > VS: clone the repository
+                                > VS: create a new project
+                                > VS: Commit 
+                                > VS: Push
+                                > VSTS: navigate to Code &amp; History
+                                > VSTS: edit the file directly and Commit
+                                > VS: Pull
+                                > VS: do some changes
+                                > VS: Commit 
+                                > VS: Push
+                                > VSTS: Refresh
+                            </code>
+                        </pre>
+                    </section>
+                    <section>
+                        <h3 class="title"><small>Git branches Demo</small></h3>
+                        <pre>
+                            <code class="console hljs" data-trim>
+                                > VS: Create a new branch named feature1
+                                > VS: Do some changes
+                                > VS: Commit
+                                > VS: Push
+                                > VSTS: refresh 
+                                > VS: navigate to Pull Request and create a new Pull Request
+                                > VSTS: determine the reviewer and create the Pull Request
+                                > VSTS: you can Complete, Reject 
+                                > VS: Switch to master branch
+                                > VS: Pull the changes down
+                                > //-----
+                                > VS: create a new feature branch named feature2
+                                > VS: do some changes that has conflict
+                                > VS: Commit
+                                > VS: Push the branch
+                                > VSTS: create a new Pull Request // this will fail
+                                > VS: Switch to master
+                                > VS: Fetch the master
+                                > VS: merge from origin/master to feature2 // this will fail
+                                > VS: resolve the conflict 
+                                > VS: Commit 
+                                > VS: Push
+                                > VSTS: Reactivate the pull request that can be completed now
+                                > VS: Wwitch to master and Pull from remote master
+                            </code>
+                        </pre>
+                    </section>
+                </section>
+
+                <!--=============== Git Workflow Section =================-->
+                <section>
+                    <section>
+                            <h2 class="title">Git Workflow</h2>
+                            <hr>
+                            <ul class="list-items">
+                                <li>VRX Projects in VSTS</li>
+                                <li>
+                                    How our git workflow works?
+                                    <ol class="list-sub-items">
+                                        <li>Pull changes from origin</li>
+                                        <li>Create local feature branches per work item or feature</li>
+                                        <li>Commit/Commint and Push feature branch to origin (if needed to be shared)</li>
+                                        <li>Merge (from dev to feature branch)</li>
+                                        <li>Pull request</li>
+                                        <li>Sync</li>
+                                        <li>Delete your local feature branch if not required</li>
+                                        <li>$git config remote.origin.prune true</li>                                        
+                                    </ol>
+                                </li>                                                            
+                            </ul>
+                            <blockquote style="font-size:0.5em; background-color:rgba(99, 126, 117, .4)">
+                                    Naming convention for feature branches:<br>
+                                    <br>
+                                    <strong><span style="color:yellowgreen">{username}</span>/<span style="color:orangered">{workitem-id}</span>-<span style="color:aqua">{something meaningful}</span></strong><br>
+                                    <br>
+                                    <em>e.g: ciarano/23076-hybrid-logout</em>
+                            </blockquote>
+                    </section>
+                    <section>
+                        <h3 class="title">How our build process works?</h3>
+                        <hr>
+                        <ul class="list-items">
+                            <li>Cannot merge to deb branch until all tests passed</li>
+                            <li>Cannot force push</li>
+                            <li>Must be a pull request (no direct push)</li>
+                            <li>Must be code reviewed</li>
+                            <li>QA, UAT, Release and TestBed (e.g. hybrid)</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3 class="title">Typical Use-Cases</h3>
+                        <br>
+                        <ul class="list-sub-items">
+                            <li>Undoing local changes? <span style="color:yellowgreen"> reset &amp; checkout &amp; clean </span></li>
+                            <li>How about shelfset? <span style="color:yellowgreen"> temporarly branches or stash </span></li>
+                            <li>How about gated-checkin? <span style="color:yellowgreen"> branch policy </span></li>
+                            <li>Deleting remote branches on pull request completion? <span style="color:yellowgreen"> it depends </span></li>
+                            <li>Clearing up local branches that no longer needed? <span style="color:yellowgreen"> Good practice </span></li>
+                            <li>Can I use Rebase? <span style="color:yellowgreen"> No, please.</span></li>
+                            <li>Can I use Squash? <span style="color:yellowgreen"> No, please.</span></li>
+                            <li>Atomic Commit? <<span style="color:yellowgreen"> Good practice.</span>/li>
+                        </ul>
+                    </section>                    
+                </section>
+
+                <!--=============== Tooling Section =================-->
+                <section>
+                    <h2 class="title">Tooling</h2>
+                    <hr>
+                    <br>
+                    <div>
+                        <img style="width:150px;margin-top:-30px;"src="../images/gitbash.png"/>
+                        <small>GitBash: <a href="https://gitforwindows.org/">https://gitforwindows.org/</a></small><br><br>
+                    </div>
+                    <div>
+                        <img style="width:150px;margin-top:-30px;" src="../images/gitkraken.png"/>
+                        <small>GitKraken:  <a href="https://www.gitkraken.com/">https://www.gitkraken.com/</a></small><br><br>                   
+                    </div>
+                    <div>
+                        <img style="width:150px;margin-top:-30px;" src="../images/vscode.png"/>
+                        <small>VS Code: <a href="https://code.visualstudio.com/">https://code.visualstudio.com/</a></small><br>
+                    </div>
+                    <div>
+                        <small>SourceTree, TortoiseGit, etc.</small>
+                    </div>
+                </section>
+
+                <!--=============== Resources Section =================-->
+                <section>
+                    <h2 class="title">Resources</h2>
+                    <hr>
+                    <ul>
+                        <li>
+                            <a href="https://www.youtube.com/watch?v=c3482qAzZLQ">Git Fundamentals</a><br>
+                            <iframe width="427" height="240" src="https://www.youtube.com/embed/c3482qAzZLQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            <br>
+                        </li>
+                        <li>
+                            <a href="https://www.atlassian.com/git/glossary">Git Glossary</a><br>
+                            <small>https://www.atlassian.com/git/glossary</small>
+                            <br>
+                        </li>
+                        <li>
+                            <a href="https://www.atlassian.com/git/glossary/terminology">Git Terminology</a><br>
+                            <small>https://www.atlassian.com/git/glossary/terminology</small>
+                        </li>
+                    </ul>
+                </section>
+
+                <!--=============== Practice makes perfect Section =================-->
+                <section>
+                    <h2 class="title">Practice makes perfect</h2>
+                    <hr>
+                    <ul class="list-items">
+                        <li>Go throught Scenarios given in this presentation and practice them</li>
+                        <li>
+                            Play with VSTS
+                            <ul>
+                                <li>Login to vsts</li>
+                                <li>clone the test project</li>
+                                <li>create a feature branch</li>
+                                <li>do some changes</li>
+                                <li>create a pull request and send it for review</li>
+                                <li>sync</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </section>
+
+                 <!--=============== Q/A Section =================-->
+                <section>
+                    <h1 class="title">Any Questions?</h1>
+                    <hr>
+                    <img src="./images/qa.jpg" style="width:640px;">
+                </section>
+            </div>
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+    </body>
+</html>
