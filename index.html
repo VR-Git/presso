@@ -111,7 +111,7 @@
                                 $ git status
                                 $ git add {new-file} 
                                 $ git status
-                                $ git commit -m "added new-file" 
+                                $ git commit -a -m "added new-file" 
                                 $ git log
                             </code>
                         </pre>                        
@@ -282,7 +282,7 @@
                                 > VS: Commit 
                                 > VS: Push
                                 > VSTS: Reactivate the pull request that can be completed now
-                                > VS: Wwitch to master and Pull from remote master
+                                > VS: Switch to master and Pull from remote master
                             </code>
                         </pre>
                     </section>
@@ -321,7 +321,7 @@
                         <h3 class="title">How our build process works?</h3>
                         <hr>
                         <ul class="list-items">
-                            <li>Cannot merge to deb branch until all tests passed</li>
+                            <li>Cannot merge to dev branch until all tests passed</li>
                             <li>Cannot force push</li>
                             <li>Must be a pull request (no direct push)</li>
                             <li>Must be code reviewed</li>
